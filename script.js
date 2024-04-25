@@ -44,7 +44,7 @@ function CreateTask(name, desc, time, _id) {
 
     let taskBody = document.createElement('div')
     taskBody.setAttribute('class', 'task');
-    taskBody.setAttribute('id',`${_id ? _id : totalIDs[i]}` );
+    taskBody.setAttribute('id',`${_id !== undefined ? _id : totalIDs[i]}` ); //ВОТ ТУТ ОШИБКА НАДО ПРОВЕРЯТЬ ЧЕРЕЗ ИФ
 
     let taskName = document.createElement('h2');
     taskName.setAttribute('class', 'task_title')
@@ -64,7 +64,7 @@ function CreateTask(name, desc, time, _id) {
     let delIco = document.createElement('img');
     delIco.setAttribute('src', 'assets/delete.svg');
     delIco.setAttribute('class', 'icon del');
-    delIco.setAttribute('onclick', `DeleteTask(${_id ? _id : i})`);
+    delIco.setAttribute('onclick', `DeleteTask(${_id !== undefined ? _id : i})`); //ВОТ ТУТ ОШИБКА НАДО ПРОВЕРЯТЬ ЧЕРЕЗ ИФ
 
 
     let editIco = document.createElement('img');
@@ -114,5 +114,7 @@ function Load(){
         }
 
     }
+    console.log('loading ended')
+
 }
 
