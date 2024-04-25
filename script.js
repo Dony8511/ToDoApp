@@ -11,6 +11,8 @@ if(window.localStorage.getItem('i') !== null){
 function DeleteTask(id) {
     document.getElementById(`${id}`).remove();
     totalIDs = totalIDs.filter(x => x !== id);
+    window.localStorage.setItem('taskIDs', totalIDs);
+
 
     window.localStorage.removeItem(`${id}name`);
     window.localStorage.removeItem(`${id}desc`);
@@ -18,7 +20,7 @@ function DeleteTask(id) {
 
 }
 
-function CreateTask(name, desc, time) {
+function CreateTask(name, desc, time, _id) {
 
     // e.preventDefault();
 
@@ -42,7 +44,7 @@ function CreateTask(name, desc, time) {
 
     let taskBody = document.createElement('div')
     taskBody.setAttribute('class', 'task');
-    taskBody.setAttribute('id', totalIDs[i]);
+    taskBody.setAttribute('id',`${_id ? _id : totalIDs[i]}` );
 
     let taskName = document.createElement('h2');
     taskName.setAttribute('class', 'task_title')
@@ -62,7 +64,7 @@ function CreateTask(name, desc, time) {
     let delIco = document.createElement('img');
     delIco.setAttribute('src', 'assets/delete.svg');
     delIco.setAttribute('class', 'icon del');
-    delIco.setAttribute('onclick', `DeleteTask(${i})`);
+    delIco.setAttribute('onclick', `DeleteTask(${_id ? _id : i})`);
 
 
     let editIco = document.createElement('img');
@@ -106,7 +108,11 @@ function Load(){
     console.log('loading')
     for(let id of totalIDs){
         console.log('inBase: ' + id)
-        CreateTask(window.localStorage.getItem(`${id}name`),window.localStorage.getItem(`${id}desc`), window.localStorage.getItem(`${id}time`));
+        if(window.localStorage.getItem(`${id}name`) !== ''){
+            CreateTask(window.localStorage.getItem(`${id}name`),window.localStorage.getItem(`${id}desc`), window.localStorage.getItem(`${id}time`), id);
+
+        }
+
     }
 }
 
