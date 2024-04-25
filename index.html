@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo APP by VasiliyUshkov</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="script.js"></script>
+</head>
+<body onload="Load()" class="dark">
+
+<aside class="create-menu">
+    <form onsubmit="CreateTask();return false" method="post">
+        <input required placeholder="Task Name" type="text" name="task_name" id="task_name_f">
+<!--        <textarea placeholder="Task Description"" name="task_description" id="task_description_f"></textarea>-->
+        <textarea placeholder="Task Description" name="task_description" id="task_description_f" cols="30" rows="10"></textarea>
+        <button  type="submit">
+            New Task
+            <img src="assets/create.svg" alt="">
+        </button>
+    </form>
+</aside>
+<main >
+<!--    <div class="task">-->
+<!--&lt;!&ndash;        contenteditable="true"&ndash;&gt;-->
+<!--        <h2  class="task_title">Task Name</h2>-->
+<!--        <p class="task_description">Description of the task Description of the task Description of the task Description of the task Description of the task Description of the task-->
+<!--        </p>-->
+<!--        <div class="controls">-->
+<!--            <p class="create_time">created at: <span>13:42</span></p>-->
+<!--            <img src="assets/delete.svg" alt="" class="icon del">-->
+<!--            <img src="assets/edit.svg" alt="" class="icon edit">-->
+<!--            <img src="assets/mark.svg" alt="" class="icon mark">-->
+<!--        </div>-->
+<!--    </div>-->
+</main>
+</body>
+</html>
